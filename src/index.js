@@ -11,6 +11,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.post('/api/prompt', async (req, res) => {
+  console.log('Prompt recibido');
   const configuration = new Configuration({
     organization: "org-mRa5t0KWGRiD58SsZqWUwTCA",
     apiKey: process.env.OPENAI_API_KEY,
@@ -26,7 +27,8 @@ app.post('/api/prompt', async (req, res) => {
     temperature: 0.5
   });
 
-
+  
+  console.log('Respuesta enviada');
   res.json({
     message: completion.data.choices[0].text
   })
