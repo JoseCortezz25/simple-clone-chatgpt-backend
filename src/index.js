@@ -42,7 +42,7 @@ app.post('/api/image/prompt', async (req, res) => {
     console.log('📦 prompt:', prompt);
     
     const response = await openai.createImage({
-      prompt: `The drawing must have the style "pencil sketch storyboard" and must follow the following instruction: ${prompt}`,
+      prompt: `${prompt}`,
       n: 1,
       size: "1024x1024",
     });
